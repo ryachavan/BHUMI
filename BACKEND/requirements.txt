@@ -4,3 +4,4 @@ joblib
 scikit-learn
 pandas
 shap
+gunicorn
