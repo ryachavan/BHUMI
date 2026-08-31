@@ -24,21 +24,21 @@ jobs:
 
       - name: 📦 Install ML Dependencies
         run: |
-          pip install -r backend/requirements.txt
+          pip install -r BACKEND/requirements.txt
 
       - name: ⚡ Start ML Backend Server
         run: |
-          python backend/app.py &
+          python BACKEND/app.py &
           sleep 5
 
       - name: ⚡ Execute Automated Layer 2 ML Worker (< 50ms Inference)
         run: |
-          if [ -f backend/12_hourly_cloud_updater.py ]; then
-            python backend/12_hourly_cloud_updater.py --mode live
+          if [ -f BACKEND/12_hourly_cloud_updater.py ]; then
+            python BACKEND/12_hourly_cloud_updater.py --mode live
           elif [ -f SCRIPTS/12_hourly_cloud_updater.py ]; then
             python SCRIPTS/12_hourly_cloud_updater.py --mode live
           else
-            echo "Unable to locate 12_hourly_cloud_updater.py in backend/ or SCRIPTS/" >&2
+            echo "Unable to locate 12_hourly_cloud_updater.py in BACKEND/ or SCRIPTS/" >&2
             exit 1
           fi
 
