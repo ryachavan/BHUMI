@@ -1,0 +1,68 @@
+name: 🛰️ Automated Hourly Landslide ML Radar Pipeline
+
+on:
+  schedule:
+    # Runs at the top of every hour (00:00, 01:00, 02:00 UTC...)
+    - cron: '0 * * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub Actions UI
+
+permissions:
+  contents: write
+
+jobs:
+  run-ml-inference-and-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Check out repository
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: 📦 Install ML Dependencies
+        run: |
+          pip install -r backend/requirements.txt
+
+      - name: ⚡ Start ML Backend Server
+        run: |
+          python backend/app.py &
+          sleep 5
+
+      - name: ⚡ Execute Automated Layer 2 ML Worker (< 50ms Inference)
+        run: |
+          if [ -f backend/12_hourly_cloud_updater.py ]; then
+            python backend/12_hourly_cloud_updater.py --mode live
+          elif [ -f SCRIPTS/12_hourly_cloud_updater.py ]; then
+            python SCRIPTS/12_hourly_cloud_updater.py --mode live
+          else
+            echo "Unable to locate 12_hourly_cloud_updater.py in backend/ or SCRIPTS/" >&2
+            exit 1
+          fi
+
+      - name: 🚀 Setup Node.js & Build Frontend
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: FRONTEND/package-lock.json
+
+      - name: 🛠️ Install NPM & Build Vite Assets
+        run: |
+          cd FRONTEND
+          npm ci
+          npm run build
+
+      - name: 💾 Commit & Push Live Updated State Telemetry
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add FRONTEND/src/data/realRiskData.json FRONTEND/src/data/mockRiskData.js
+          if git diff --staged --quiet; then
+            echo "No changes in risk levels this hour."
+          else
+            git commit -m "chore(telemetry): auto-sync hourly satellite ML early warning state [skip ci]"
+            git push
+          fi

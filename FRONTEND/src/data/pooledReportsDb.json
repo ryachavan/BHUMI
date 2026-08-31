@@ -1,0 +1,26 @@
+[
+  {
+    "id": "CR-104",
+    "location": "NH-10 (Km 18.2, 20th Mile bend near Singtam)",
+    "timestamp": "18 mins ago",
+    "reportedBy": "Tenzing L. (Local Driver)",
+    "description": "Active debris fall and rock tumbling observed across southbound lane. Soil slumping from upper toe cutting.",
+    "roadBlocked": "Partial (Single Lane)",
+    "status": "PENDING_VERIFICATION",
+    "severity": "HIGH",
+    "coords": "27.2341°N, 88.4982°E",
+    "photoUrl": null
+  },
+  {
+    "id": "CR-105",
+    "location": "North Sikkim Highway (Chungthang Gorge Km 42)",
+    "timestamp": "42 mins ago",
+    "reportedBy": "Pema D. (BRO Road Worker)",
+    "description": "Mudflow slurry pooling along culvert. Tension cracks expanding across roadside retaining wall.",
+    "roadBlocked": "No Blockage",
+    "status": "PENDING_VERIFICATION",
+    "severity": "SEVERE",
+    "coords": "27.6042°N, 88.6431°E",
+    "photoUrl": null
+  }
+]

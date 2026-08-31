@@ -1,0 +1,24 @@
+{
+  "name": "bhumi",
+  "version": "1.0.0",
+  "description": "BHUMI — Boundary Hazard & Unstable terrain Monitoring Intelligence",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run dev --prefix FRONTEND",
+    "build": "npm run build --prefix FRONTEND",
+    "preview": "npm run preview --prefix FRONTEND",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryachavan/fluffy-waffle.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ryachavan/fluffy-waffle/issues"
+  },
+  "homepage": "https://github.com/ryachavan/fluffy-waffle#readme"
+}

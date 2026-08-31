@@ -1,0 +1,28 @@
+# Raw datasets - never push to GitHub
+DATA/RAW/
+
+# Processed/generated datasets
+DATA/PROCESSED/
+
+# Large demo outputs
+DATA/DEMO/*.csv
+DATA/DEMO/*.parquet
+
+# Python virtual environments
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Trained ML models
+*.pkl
+
+# Secrets
+.env
+
+# VS Code local settings
+.vscode/
+FRONTEND/node_modules/
+FRONTEND/dist/
