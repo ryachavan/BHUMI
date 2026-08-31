@@ -2,8 +2,8 @@ name: 🛰️ Automated Hourly Landslide ML Radar Pipeline
 
 on:
   schedule:
-    # Runs at the top of every hour (00:00, 01:00, 02:00 UTC...)
-    - cron: '0 * * * *'
+    # Runs at the top of every hour IST (UTC+5:30), which is the 30th minute in UTC.
+    - cron: '30 * * * *'
   workflow_dispatch: # Allows manual trigger from GitHub Actions UI
 
 permissions:
