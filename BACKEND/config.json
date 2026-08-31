@@ -1,12 +1,28 @@
 {
-  "backend_url": "http://localhost:5000",
+  "backend_url": "https://bhumi-backend-ldy5.onrender.com",
   "output_dir": "../FRONTEND/src/data",
   "mock_js_path": "../FRONTEND/src/data/mockRiskData.js",
   "telemetry_coords": [
-    {"district": "East (Gangtok)", "lat": 27.3389, "lon": 88.6065},
-    {"district": "North (Mangan)", "lat": 27.5000, "lon": 88.5333},
-    {"district": "South (Namchi)", "lat": 27.1667, "lon": 88.3500},
-    {"district": "West (Geyzing)", "lat": 27.2833, "lon": 88.2500}
+    {
+      "district": "East (Gangtok)",
+      "lat": 27.3389,
+      "lon": 88.6065
+    },
+    {
+      "district": "North (Mangan)",
+      "lat": 27.5000,
+      "lon": 88.5333
+    },
+    {
+      "district": "South (Namchi)",
+      "lat": 27.1667,
+      "lon": 88.3500
+    },
+    {
+      "district": "West (Geyzing)",
+      "lat": 27.2833,
+      "lon": 88.2500
+    }
   ],
   "simulation_modes": {
     "live": {
@@ -28,10 +44,26 @@
     }
   },
   "severity_colors": {
-    "LOW": { "color": "#27865f", "fill": "#d8f3e5", "label": "Low" },
-    "MODERATE": { "color": "#b87808", "fill": "#fff0c2", "label": "Moderate" },
-    "HIGH": { "color": "#e16713", "fill": "#ffe3cf", "label": "High" },
-    "SEVERE": { "color": "#c7353f", "fill": "#ffe0e2", "label": "Severe" }
+    "LOW": {
+      "color": "#27865f",
+      "fill": "#d8f3e5",
+      "label": "Low"
+    },
+    "MODERATE": {
+      "color": "#b87808",
+      "fill": "#fff0c2",
+      "label": "Moderate"
+    },
+    "HIGH": {
+      "color": "#e16713",
+      "fill": "#ffe3cf",
+      "label": "High"
+    },
+    "SEVERE": {
+      "color": "#c7353f",
+      "fill": "#ffe0e2",
+      "label": "Severe"
+    }
   },
   "shap_labels": {
     "rainfall_mm": "Rainfall",
