@@ -1,5 +1,5 @@
 {
-  "backend_url": "https://bhumi-backend-ldy5.onrender.com",
+  "backend_url": "https://bhumi-back.onrender.com",
   "output_dir": "../FRONTEND/src/data",
   "mock_js_path": "../FRONTEND/src/data/mockRiskData.js",
   "telemetry_coords": [
