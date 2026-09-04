@@ -35,7 +35,7 @@ export default function SelectedCellPanel({ cell }) {
         <div className="probability-track">
           <span style={{
             width: `${cell.risk_probability}%`,
-            background: cell.risk_probability >= 75 ? '#d7191c' : cell.risk_probability >= 50 ? '#e16713' : cell.risk_probability >= 20 ? '#b87808' : '#27865f'
+            background: cell.risk_probability >= 75 ? '#d7191c' : cell.risk_probability >= 50 ? '#e16713' : cell.risk_probability >= 20 ? '#eab308' : '#27865f'
           }} />
         </div>
         <small>Coupled Layer 1 Static Fragility &amp; Layer 2 NASA Dynamic Trigger</small>

@@ -50,8 +50,8 @@
       "label": "Low"
     },
     "MODERATE": {
-      "color": "#b87808",
-      "fill": "#fff0c2",
+      "color": "#eab308",
+      "fill": "#fef08a",
       "label": "Moderate"
     },
     "HIGH": {
