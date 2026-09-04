@@ -122,10 +122,10 @@ Response Body:
 ]
 ```
 
-## Automated Pipeline (Hourly Radar)
+## Automated Pipeline (30-Minute Radar)
 
-The `hourly_landslide_radar.yml` GitHub Action orchestrates the entire system:
-1. It triggers every hour at the 30 minute mark (UTC).
-2. It executes `12_hourly_cloud_updater.py` to fetch fresh telemetry and hit the `/predict/batch` endpoint.
+The `30min_landslide_radar.yml` GitHub Action orchestrates the entire system:
+1. It triggers every 30 minutes.
+2. It executes `cloud_updater.py` to fetch fresh telemetry and hit the `/predict/batch` endpoint.
 3. It updates `realRiskData.json` with the new predictions and SHAP factors.
 4. It builds the Vite frontend and commits the fresh data back to the repository, keeping the live site strictly up to date.

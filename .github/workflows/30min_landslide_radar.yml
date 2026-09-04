@@ -1,9 +1,9 @@
-name: 🛰️ Automated Hourly Landslide ML Radar Pipeline
+name: 🛰️ Automated 30-Minute Landslide ML Radar Pipeline
 
 on:
   schedule:
-    # Runs at the top of every hour IST (UTC+5:30), which is the 30th minute in UTC.
-    - cron: '30 * * * *'
+    # Runs every 30 minutes
+    - cron: "*/30 * * * *"
   workflow_dispatch: # Allows manual trigger from GitHub Actions UI
 
 permissions:
@@ -19,8 +19,8 @@ jobs:
       - name: 🐍 Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
-          cache: 'pip'
+          python-version: "3.11"
+          cache: "pip"
 
       - name: 📦 Install ML Dependencies
         run: |
@@ -33,12 +33,12 @@ jobs:
 
       - name: ⚡ Execute Automated Layer 2 ML Worker (< 50ms Inference)
         run: |
-          if [ -f BACKEND/12_hourly_cloud_updater.py ]; then
-            python BACKEND/12_hourly_cloud_updater.py --mode live
-          elif [ -f SCRIPTS/12_hourly_cloud_updater.py ]; then
-            python SCRIPTS/12_hourly_cloud_updater.py --mode live
+          if [ -f BACKEND/cloud_updater.py ]; then
+            python BACKEND/cloud_updater.py --mode live
+          elif [ -f SCRIPTS/cloud_updater.py ]; then
+            python SCRIPTS/cloud_updater.py --mode live
           else
-            echo "Unable to locate 12_hourly_cloud_updater.py in BACKEND/ or SCRIPTS/" >&2
+            echo "Unable to locate cloud_updater.py in BACKEND/ or SCRIPTS/" >&2
             exit 1
           fi
 
@@ -46,7 +46,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          cache: "npm"
           cache-dependency-path: FRONTEND/package-lock.json
 
       - name: 🛠️ Install NPM & Build Vite Assets
@@ -57,12 +57,12 @@ jobs:
 
       - name: 💾 Commit & Push Live Updated State Telemetry
         run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git config --global user.name 'BHUMI-Radar'
+          git config --global user.email 'BHUMI-Radar@users.noreply.github.com'
           git add FRONTEND/src/data/realRiskData.json FRONTEND/src/data/mockRiskData.js
           if git diff --staged --quiet; then
-            echo "No changes in risk levels this hour."
+            echo "No changes in risk levels this period."
           else
-            git commit -m "chore(telemetry): auto-sync hourly satellite ML early warning state [skip ci]"
+            git commit -m "chore(telemetry): auto-sync 30-minute satellite ML early warning state [skip ci]"
             git push
           fi

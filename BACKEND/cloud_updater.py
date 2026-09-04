@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-12_hourly_cloud_updater.py
+cloud_updater.py
 Automated Serverless Cloud ML Inference Worker for Landslide Early Warning.
 Fully integrated with config.json and real SHAP explanations from the backend.
 """
