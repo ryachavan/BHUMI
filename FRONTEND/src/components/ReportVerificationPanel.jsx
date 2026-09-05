@@ -84,7 +84,7 @@ export default function ReportVerificationPanel({ reports, onStatusChange }) {
                       fontWeight: 700,
                       padding: '2px 7px',
                       borderRadius: '4px',
-                      background: report.severity === 'SEVERE' ? '#c7353f' : '#e16713',
+                      background: report.severity === 'SEVERE' ? '#c7353f' : '#f97316',
                       color: '#fff'
                     }}>
                       {report.severity}

@@ -1,6 +1,6 @@
 flask
 flask-cors
 joblib
-scikit-learn==1.6.1
+scikit-learn
 pandas
 shap

@@ -8,8 +8,8 @@ import { getDistrictConfig } from '../data/districtConfig'
 const SEVERITY_COLORS = {
   LOW: '#15803d',
   SAFE: '#15803d',
-  MODERATE: '#b45309',
-  HIGH: '#c2410c',
+  MODERATE: '#eab308',
+  HIGH: '#f97316',
   SEVERE: '#b91c1c',
   CRITICAL: '#b91c1c',
 }
@@ -254,7 +254,7 @@ export default function RiskMap({
               key={road.road_id}
               positions={road.coordinates}
               pathOptions={{
-                color: road.risk_level === 'SEVERE' ? '#b91c1c' : road.risk_level === 'HIGH' ? '#c2410c' : '#334155',
+                color: road.risk_level === 'SEVERE' ? '#b91c1c' : road.risk_level === 'HIGH' ? '#f97316' : '#334155',
                 weight: 4,
                 opacity: 0.85,
                 dashArray: road.risk_level === 'MODERATE' ? '6 5' : undefined,

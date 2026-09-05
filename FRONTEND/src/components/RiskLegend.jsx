@@ -3,8 +3,8 @@ import React from 'react'
 export default function RiskLegend() {
   const legendItems = [
     { label: 'Safe / Low (<25%)', color: '#15803d' },
-    { label: 'Moderate (25-50%)', color: '#b45309' },
-    { label: 'High (50-75%)', color: '#c2410c' },
+    { label: 'Moderate (25-50%)', color: '#eab308' },
+    { label: 'High (50-75%)', color: '#f97316' },
     { label: 'Critical (>75%)', color: '#b91c1c' },
   ]
 
