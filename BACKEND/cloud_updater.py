@@ -152,8 +152,6 @@ def run_hourly_update(mode="live"):
     # 2. ML Model Inference via backend API (with sigmoid fallback)
     infer_start = time.time()
     updated_cells = []
-    severe_count = 0
-    high_count = 0
     
     # Pre-compute per-cell derived weather values and ML feature vectors
     cell_weather = []
@@ -277,16 +275,12 @@ def run_hourly_update(mode="live"):
         updated_cells.append(cell_copy)
         
     infer_duration = (time.time() - infer_start) * 1000.0
-    print(f"ML Inference ({risk_source}) finished in {infer_duration:.2f} ms (Severe: {severe_count}, High: {high_count}).")
+    print(f"ML Inference ({risk_source}) finished in {infer_duration:.2f} ms.")
     
     # 3. Update Meta & Output Files
     master_data["riskCells"] = updated_cells
     master_data["meta"]["last_updated"] = f"{now_str} ({telemetry_source})"
     master_data["meta"]["summary"] = {
-        "severe_risk_cells": severe_count,
-        "high_risk_cells": high_count,
-        "roads_at_risk": 5 if severe_count > 500 else 3 if severe_count > 100 else 1,
-        "settlements_at_risk": 7 if severe_count > 500 else 2 if severe_count > 50 else 0,
         "weather_trigger": f"Satellite Rain ({int(140*rain_scale)} mm 3d) & SMAP Saturation ({int(mean_sm)}%)"
     }
     
