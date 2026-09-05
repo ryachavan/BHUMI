@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { AlertTriangle, History, Play, Square, Volume2, VolumeX, X } from 'lucide-react'
+import { AlertTriangle, History, Play, Square, VolumeX, X } from 'lucide-react'
 import { useSimulation } from '../contexts/SimulationContext'
 import historicalEvents from '../data/historicalEvents'
 

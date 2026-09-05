@@ -1,5 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
-import { AlertCircle, Gauge, RadioTower } from 'lucide-react'
+import React, { useEffect, useState } from 'react'
 import Header from './components/Header'
 import CitizenSection from './components/CitizenSection'
 import OfficialSection from './components/OfficialSection'

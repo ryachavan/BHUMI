@@ -9,14 +9,11 @@ import {
   RadioTower,
   Route,
   ShieldAlert,
-  Users,
   XCircle,
   Clock,
   Eye,
   Send,
   CloudRain,
-  Flame,
-  Compass,
 } from 'lucide-react'
 import SeverityBadge from './SeverityBadge'
 import RiskMap from './RiskMap'
@@ -67,12 +64,12 @@ export default function OfficialSection({
   )
 
   const handleVerifyReport = (id) => {
-    reportService.verifyReport(id)
+    reportService.updateStatus(id, 'VERIFIED')
     setVerifiedList((prev) => [...prev, id])
   }
 
   const handleDismissReport = (id) => {
-    reportService.dismissReport(id)
+    reportService.updateStatus(id, 'DISMISSED')
     setDismissedList((prev) => [...prev, id])
   }
 

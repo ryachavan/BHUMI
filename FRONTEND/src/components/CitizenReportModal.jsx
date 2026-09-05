@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Camera, CheckCircle2, MapPin, Upload, X, Navigation, AlertTriangle, Image as ImageIcon } from 'lucide-react'
+import { Camera, CheckCircle2, MapPin, X, Navigation } from 'lucide-react'
 import reportService from '../services/reports'
 
 export default function CitizenReportModal({ open, onClose, onReportSubmitted }) {

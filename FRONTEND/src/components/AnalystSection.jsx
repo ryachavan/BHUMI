@@ -7,12 +7,10 @@ import {
   Download,
   FileCode,
   FileSpreadsheet,
-  Layers,
   MapPin,
   Mountain,
   Ruler,
   Sliders,
-  Sparkles,
   TrendingDown,
   TrendingUp,
 } from 'lucide-react'

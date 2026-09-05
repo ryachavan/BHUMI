@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import {
-  Activity,
-  ChevronDown,
-  Globe,
   Languages,
   MapPin,
-  RadioTower,
-  User,
   Users,
   Building2,
   FlaskConical,
