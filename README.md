@@ -1,39 +1,121 @@
-# BHUMI: Boundary Hazard & Unstable terrain Monitoring Intelligence
+<div align="center">
 
-BHUMI is a comprehensive, automated landslide early warning system built for the vulnerable terrains of Sikkim. By combining real time satellite telemetry, machine learning, and explainable AI, BHUMI predicts landslide susceptibility at a highly localized grid level. The system operates on a zero maintenance serverless pipeline that ensures decision makers have access to the most current risk data through an interactive geospatial dashboard.
+# 🏔️ BHUMI
+
+### Boundary Hazard & Unstable terrain Monitoring Intelligence
+
+**A comprehensive, automated landslide early warning system built for the vulnerable terrains of Sikkim.**
+
+By combining real-time satellite telemetry, machine learning, and explainable AI, BHUMI predicts landslide susceptibility at a highly localized grid level. The system operates on a zero-maintenance serverless pipeline that ensures decision-makers have access to the most current risk data through an interactive geospatial dashboard.
+
+</div>
+
+---
+
+## Tech Stack
+
+<table>
+  <tr>
+    <th>Layer</th>
+    <th>Technologies</th>
+  </tr>
+  <tr>
+    <td><strong>Frontend</strong></td>
+    <td>
+      <img src="https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB" alt="React" />
+      <img src="https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white" alt="Vite" />
+      <img src="https://img.shields.io/badge/Leaflet-199900?logo=leaflet&logoColor=white" alt="Leaflet" />
+      <img src="https://img.shields.io/badge/Lucide-F56040?logo=lucide&logoColor=white" alt="Lucide" />
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Backend</strong></td>
+    <td>
+      <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white" alt="Python" />
+      <img src="https://img.shields.io/badge/Flask-000000?logo=flask&logoColor=white" alt="Flask" />
+      <img src="https://img.shields.io/badge/scikit--learn-F7931E?logo=scikit-learn&logoColor=white" alt="scikit-learn" />
+      <img src="https://img.shields.io/badge/SHAP-8B5CF6?logoColor=white" alt="SHAP" />
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Data & ML</strong></td>
+    <td>
+      <img src="https://img.shields.io/badge/Pandas-150458?logo=pandas&logoColor=white" alt="Pandas" />
+      <img src="https://img.shields.io/badge/Joblib-E34F26?logoColor=white" alt="Joblib" />
+      <img src="https://img.shields.io/badge/Open--Meteo_API-1E88E5?logo=cloud&logoColor=white" alt="Open-Meteo" />
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Infrastructure</strong></td>
+    <td>
+      <img src="https://img.shields.io/badge/GitHub_Actions-2088FF?logo=githubactions&logoColor=white" alt="GitHub Actions" />
+      <img src="https://img.shields.io/badge/Firebase_RTDB-FFCA28?logo=firebase&logoColor=black" alt="Firebase" />
+      <img src="https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white" alt="Node.js" />
+    </td>
+  </tr>
+</table>
+
+---
 
 ## Key Features
 
-* Real Time Geospatial Dashboard: A responsive, map based interface providing granular visualization of active threat zones across Sikkim.
-* Explainable AI (XAI) Risk Factors: The dashboard displays transparent reasoning for every prediction, explicitly breaking down which environmental factors are driving the risk level.
-* Multilingual Support: Breaks down language barriers by providing the interface and critical alerts in multiple regional languages to ensure maximum accessibility.
-* Role Based Access Control: Dedicated portals tailored for different stakeholders, including specialized views for Citizens, Government Officials, and Data Analysts.
-* Landslide Simulation: Advanced simulation capabilities allow authorities to model hypothetical weather scenarios and visualize potential disaster impacts before they occur.
-* Citizen Incident Reporting: Crowdsourced ground truth data collection powered by Firebase Realtime Database (RTDB), enabling citizens to report active landslides and infrastructural damage in real time.
-* Automated Telemetry Ingestion: The system autonomously fetches live weather, soil moisture, temperature, and humidity data from the Open-Meteo Global API.
-* Fully Automated Pipeline: A GitOps based orchestration engine triggers hourly updates, runs ML inference, builds the latest data into the frontend, and deploys it automatically.
-* High Availability Fallback: If the machine learning backend experiences downtime, the system gracefully degrades to a deterministic mathematical model (Sigmoid Risk Formula) to guarantee uninterrupted warnings.
+| Feature | Description |
+|---------|-------------|
+| 🗺️ **Interactive Geospatial Dashboard** | A responsive, map-based interface built with React and Leaflet. Click any localized grid cell across Sikkim to reveal specific risk factors including 3-day rainfall, slope angle, and fault-line proximity. |
+| 🌡️ **Risk Heatmaps** | Dynamic visual heatmaps highlighting high-probability landslide clusters for rapid geographical assessment. |
+| 🔐 **Role-Based Access Control** | Dedicated portals tailored for Citizens, Government Officials, and Data Analysts. |
+| ⚡ **Instant Load Times** | Runs entirely from a pre-calculated JSON state, handling high traffic during critical emergencies without straining a live database. |
+| 🌐 **Multilingual Support** | Interface and critical alerts available in multiple regional languages for maximum accessibility. |
+| 🧠 **Explainable AI (XAI) Risk Factors** | Transparent reasoning for every prediction, explicitly breaking down which environmental factors drive the risk level. |
+| 🌀 **Landslide Simulation** | Model hypothetical weather scenarios and visualize potential disaster impacts before they occur. |
+| 📢 **Citizen Incident Reporting** | Crowdsourced ground-truth data via Firebase RTDB, enabling real-time reports of active landslides and infrastructural damage. |
+| 📡 **Automated Telemetry Ingestion** | Autonomously fetches live weather, soil moisture, temperature, and humidity data from the Open-Meteo Global API. |
+| 🔄 **Fully Automated Pipeline** | GitOps-based orchestration triggers updates every 30 minutes, runs ML inference, and deploys fresh data automatically. |
+| 🛡️ **High Availability Fallback** | Graceful degradation to a deterministic Sigmoid Risk Formula if the ML backend experiences downtime. |
 
-## Interactive Dashboard
+---
 
-The frontend application serves as the primary visual interface for decision makers and emergency responders. Built using React and Leaflet, it transforms complex predictive data into actionable intelligence.
-
-* Interactive Threat Mapping: Utilizes Leaflet to render high resolution maps overlaying the localized grid cells of Sikkim.
-* Risk Heatmaps: Dynamically generates visual heatmaps that instantly highlight high probability landslide clusters, allowing for rapid geographical assessment.
-* Contextual Tooltips and Panels: Clicking on any grid cell reveals the specific meteorological and topographical factors (such as 3 day rainfall accumulation, slope angle, and fault line proximity) affecting that exact location.
-* Localized State Management: The application runs entirely from a pre calculated JSON state, meaning load times are instantaneous and the dashboard can handle high traffic during critical emergency events without straining a live database.
-
-## Architecture and Tech Stack
+## Architecture
 
 The architecture is split into three core pillars:
 
-1. Frontend Visualization: Built with React, Vite, and React Leaflet. 
-2. Backend API: A Flask based Python server hosting a trained scikit-learn RandomForestClassifier.
-3. Automation Engine: A serverless cloud worker executed via GitHub Actions that bridges real time data with the ML model.
+```mermaid
+graph LR
+    A["📡 Open-Meteo API"] -->|Telemetry| B["⚙️ Cloud Updater"]
+    B -->|Feature Vectors| C["🧠 Flask ML Server"]
+    C -->|Predictions + SHAP| B
+    B -->|realRiskData.json| D["🗺️ React Dashboard"]
+    E["⏰ GitHub Actions"] -->|Triggers every 30 min| B
+    F["👥 Citizens"] -->|Incident Reports| G["🔥 Firebase RTDB"]
+    G -->|Ground Truth| D
+```
 
-## Frontend Setup and Local Development
+| Pillar | Stack | Purpose |
+|--------|-------|---------|
+| **Frontend Visualization** | React, Vite, React Leaflet | Interactive geospatial dashboard |
+| **Backend API** | Flask, scikit-learn, SHAP | ML model serving & explainability |
+| **Automation Engine** | GitHub Actions, Cloud Updater | Serverless pipeline orchestration |
 
-Navigate to the frontend directory to run the dashboard locally:
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+| Requirement | Version |
+|-------------|---------|
+| ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white) | `3.11+` |
+| ![Node.js](https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white) | `v20+` |
+
+### Frontend Setup
+
+Create a `.env` file inside `FRONTEND/` with the following variable:
+
+```env
+VITE_FIREBASE_DB_URL=<your-firebase-realtime-database-url>
+```
+
+Then install and run:
 
 ```bash
 cd FRONTEND
@@ -41,19 +123,9 @@ npm install
 npm run dev
 ```
 
-The application will be accessible at http://localhost:5173.
+> The application will be accessible at **http://localhost:5173**
 
-## Backend Setup and Local Development
-
-The backend serves the trained machine learning model for real time landslide risk prediction.
-
-### Prerequisites
-* Python 3.11 or higher
-* Node.js v20 (for the frontend)
-
-### Running the Backend
-
-Navigate to the backend directory and start the Flask server:
+### Backend Setup
 
 ```bash
 cd BACKEND
@@ -61,27 +133,46 @@ pip install -r requirements.txt
 python app.py
 ```
 
-The server will start on http://localhost:5000. 
+> The server will start on **http://localhost:5000**
 
-Note: This backend must be running before executing the local 12 hourly cloud updater script, which calls the `/predict/batch` endpoint to score all grid cells. If the backend is not running, the updater will fall back to the legacy sigmoid formula and log a warning.
+> [NOTE]
+> The backend must be running before executing the cloud updater script, which calls the `/predict/batch` endpoint to score all grid cells. If the backend is not running, the updater will fall back to the legacy sigmoid formula and log a warning.
 
-## Machine Learning Model Details
+---
 
-* File: `sikkim_landslide_model.joblib`
-* Algorithm: scikit-learn `RandomForestClassifier`
-* Input Features (6): `rainfall_mm`, `soil_moisture`, `slope_degree`, `elevation_m`, `temperature_c`, `humidity`
-* Output: Binary probability where class 1 indicates landslide susceptibility.
+## Machine Learning Model
 
-## API Endpoints
+| Property | Details |
+|----------|---------|
+| **Model File** | `sikkim_landslide_model.joblib` |
+| **Algorithm** | scikit-learn `RandomForestClassifier` |
+| **Input Features (6)** | `rainfall_mm`, `soil_moisture`, `slope_degree`, `elevation_m`, `temperature_c`, `humidity` |
+| **Output** | Binary probability - class `1` indicates landslide susceptibility |
 
-### GET /health
+---
+
+## API Reference
+
+### `GET /health`
+
 Returns the health status of the API and verifies if the model is loaded in memory.
-Response format: `{"status": "ok", "model_loaded": true}`
 
-### POST /predict
+```json
+{
+  "status": "ok",
+  "model_loaded": true
+}
+```
+
+---
+
+### `POST /predict`
+
 Scores a single grid cell based on provided telemetry.
 
-Request Body:
+<details>
+<summary>📥 Request Body</summary>
+
 ```json
 {
   "rainfall_mm": 80,
@@ -93,7 +184,11 @@ Request Body:
 }
 ```
 
-Response Body:
+</details>
+
+<details>
+<summary>📤 Response Body</summary>
+
 ```json
 {
   "risk_probability": 0.7234,
@@ -103,10 +198,17 @@ Response Body:
 }
 ```
 
-### POST /predict/batch
-Batch prediction optimized for scoring the entire state grid simultaneously. It accepts a JSON array of feature dictionaries and returns predictions in the exact corresponding order, including calculated SHAP values for explainability.
+</details>
 
-Request Body:
+---
+
+### `POST /predict/batch`
+
+Batch prediction optimized for scoring the entire state grid simultaneously. Accepts a JSON array of feature dictionaries and returns predictions with calculated SHAP values for explainability.
+
+<details>
+<summary>📥 Request Body</summary>
+
 ```json
 [
   {"rainfall_mm": 80, "soil_moisture": 60, "slope_degree": 30, "elevation_m": 2000, "temperature_c": 15, "humidity": 75},
@@ -114,7 +216,11 @@ Request Body:
 ]
 ```
 
-Response Body:
+</details>
+
+<details>
+<summary>📤 Response Body</summary>
+
 ```json
 [
   {"risk_probability": 0.7234, "risk_percentage": 72.34, "risk_level": "SEVERE", "shap_values": {}},
@@ -122,10 +228,35 @@ Response Body:
 ]
 ```
 
-## Automated Pipeline (30-Minute Radar)
+</details>
+
+---
+
+## Automated Pipeline: 30min Radar
 
 The `30min_landslide_radar.yml` GitHub Action orchestrates the entire system:
-1. It triggers every 30 minutes.
-2. It executes `cloud_updater.py` to fetch fresh telemetry and hit the `/predict/batch` endpoint.
-3. It updates `realRiskData.json` with the new predictions and SHAP factors.
-4. It builds the Vite frontend and commits the fresh data back to the repository, keeping the live site strictly up to date.
+
+```
+┌─────────────────────────────────────────────────────────┐
+│  ⏰  Cron Trigger (every 30 minutes)                    │
+│    ↓                                                    │
+│  📡  Fetch live telemetry from Open-Meteo API           │
+│    ↓                                                    │
+│  🧠  Hit /predict/batch → ML inference on all grids     │
+│    ↓                                                    │
+│  📊  Update realRiskData.json with predictions + SHAP   │
+│    ↓                                                    │
+│  🏗️  Build Vite frontend with fresh data                │
+│    ↓                                                    │
+│  🚀  Commit & deploy to keep live site up to date       │
+└─────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Contributors
+
+- [Arya Chavan](https://github.com/ryachavan)
+- [Ojas Manjrekar](https://github.com/ojasm18)
+- [Tanush Chavan](https://github.com/TanushCode)
+- [Joel Wilson](https://github.com/InfiniteSkiller)
