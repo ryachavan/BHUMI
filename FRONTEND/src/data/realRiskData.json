@@ -2,7 +2,7 @@
   "meta": {
     "pilot_region": "Sikkim, India",
     "system_status": "ML Layer 1 & 2 Active \u00b7 Monitoring",
-    "last_updated": "12 Nov 2026, 11:56 PM IST (Live Open-Meteo Satellite Feed)",
+    "last_updated": "13 Nov 2026, 04:32 AM IST (Live Open-Meteo Satellite Feed)",
     "data_mode": "OPERATIONAL ML EARLY WARNING SYSTEM (LAYER 1 & 2 ACTIVE)",
     "summary": {
       "weather_trigger": "Satellite Rain (11 mm 3d) & SMAP Saturation (45%)"
